@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './pages/Header'
-import Body from './pages/Body'
+import Header from './components/Header';
+import Body from './components/Body'
 
 function App() {
   return <>
