@@ -4,7 +4,7 @@ import "./Styles/header.css"
 function Header() {
   return (
     <div className='Header'>
-        <h1>GITHUB PROFILE Finder</h1>
+        <h1>GITHUB PROFILE FINDER</h1>
     </div>
   )
 }
