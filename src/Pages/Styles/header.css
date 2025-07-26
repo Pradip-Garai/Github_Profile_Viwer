@@ -1,0 +1,140 @@
+/* Styles/header.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Header {
+    background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    margin-bottom: 2rem;
+}
+
+.Header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #26d0ce, #1a2980);
+    z-index: 2;
+}
+
+/* Animated gradient background */
+.Header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #26d0ce 0%, #1a2980 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.Header:hover::after {
+    opacity: 1;
+}
+
+/* Floating particles animation */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    z-index: 1;
+    animation: float linear infinite;
+}
+
+/* Generate random particles */
+.Header:hover .particle {
+    animation-play-state: running;
+}
+
+.Header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 3;
+    transform-style: preserve-3d;
+}
+
+/* Advanced text animation */
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+        transform: translateY(-20px) rotateX(45deg);
+        text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) rotateX(0);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.Header h1 {
+    animation: fadeIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Glow effect on hover */
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 8px rgba(255, 255, 255, 0); }
+    50% { text-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
+}
+
+@media (hover: hover) {
+    .Header:hover h1 {
+        animation: textGlow 3s ease-in-out infinite;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .Header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .Header {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .Header h1 {
+        font-size: 1.7rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Header {
+        padding: 1rem;
+    }
+    
+    .Header h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .Header h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* JavaScript will add these particles dynamically */
